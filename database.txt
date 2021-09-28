@@ -1,0 +1,149 @@
+ER- https://docs.google.com/spreadsheets/d/1pnVYYvTrUzQ0kZDKqmOBCXKNLVb7XbGd53kBMHfH97U/edit#gid=1765164523
+-----------------------------------------------------------------------------
+//Drop tables
+
+Drop table hlp_tbl_Customer;
+Drop table hlp_tbl_Admin;
+Drop table hlp_tbl_Application;
+Drop table hlp_tbl_LoanTracker;
+Drop table hlp_tbl_LoanDetails;
+Drop table hlp_tbl_DocDetails;
+Drop table hlp_tbl_IncomeDetails;
+Drop table hlp_tbl_BankDetails;
+Drop table hlp_tbl_PersonalDetails
+
+//Desc
+
+Desc  hlp_tbl_Customer;
+Desc hlp_tbl_Admin;
+Desc hlp_tbl_Application;
+Desc table hlp_tbl_LoanTracker;
+Desc table hlp_tbl_LoanDetails;
+Desc hlp_tbl_DocDetails;
+Desc hlp_tbl_IncomeDetails;
+Desc hlp_tbl_BankDetails
+Desc hlp_tbl_PersonalDetails
+-------------------------------------------------------------------------------
+--------------------------------------------------------------------------------
+//Customer
+
+Create Table hlp_tbl_Customer(
+CustomerId number(10) ,
+CustomerName varchar2(50) NOT NULL,
+CustomerEmail varchar2(50) NOT NULL,
+CustomerPassword varchar2(50) NOT NULL,
+CONSTRAINT CUSTOMER_PRIMARY_KEY PRIMARY KEY  (CustomerId)
+);
+
+
+//Admin
+
+Create Table hlp_tbl_Admin(
+AdminId number(10) ,
+AdminName varchar2(50) NOT NULL,
+AdminEmail varchar2(50) NOT NULL,
+AdminPassword varchar2(50) NOT NULL,
+CONSTRAINT ADMIN_PRIMARY_KEY PRIMARY KEY (AdminId)
+
+);
+
+
+
+//IncomeDetails
+create table hlp_tbl_IncomeDetails(
+    IncomeId number(10) primary key,
+    PropertyName varchar2(20) not null,
+    PropertyLocation varchar2(20) not null,
+    EstimatedAmount number not null,
+    EmploymentType varchar(20) check(EmploymentType in('salaried','self-employed')),
+    RetirementAge number,
+    OrganizatioType varchar(20),
+    EmployeeName varchar(20),
+   AnnualIncome number
+);
+
+//Loan Details
+
+Create Table hlp_tbl_LoanDetails(
+LoanId number(10),
+MaxLoanAmount number(10) NOT NULL,
+InterestRate number(10) NOT NULL,
+LoanTenure number(10) NOT NULL,
+AppliedLoanAmount number(10) NOT NULL,
+CONSTRAINT LOANID_PRIMARY_KEY PRIMARY KEY (LoanId)
+);
+
+// Personal Details
+
+Create Table hlp_tbl_PersonalDetails(
+PersonalDetailsId number(10) ,
+FirstName varchar2(50) NOT NULL,
+LastName varchar2(50) NOT NULL,
+MiddleName varchar2(50) NOT NULL,
+EmailId varchar2(50) NOT NULL,
+PhoneNumber number(10) NOT NULL,
+DateOfBirth Date NOT NULL,
+Gender varchar2(20) NOT NULL,
+Nationality varchar2(50) NOT NULL,
+AadharNumber varchar2(20) NOT NULL,
+PanNumber varchar2(20) NOT NULL,
+CONSTRAINT PeronalDetails_PRIMARY_KEY PRIMARY KEY (PersonalDetailsId )
+
+);
+
+//Docs Upload 
+
+create table hlp_tbl_DocDetails
+(
+ Aadhar varchar2(4000),
+ Pan varchar2(4000),
+ SalarySlip varchar2(4000),
+ LOA varchar2(4000),
+ NOC varchar2(4000),
+ Agreement varchar2(4000),
+ DocsId number(10) primary key
+);
+
+
+//Bank Details
+
+create table hlp_tbl_BankDetails
+(
+  CustomerId number(10),
+  BankAccId varchar2(50),
+  LoanAccNo varchar2(50) not null,
+  Balance number(20) not null,
+  AdminId number(10),
+  CONSTRAINT ADMINID_FOREIGN_KEY FOREIGN KEY (AdminId) REFERENCES hlp_tbl_Admin(AdminId),
+  CONSTRAINT CUSTID_FOREIGN_KEY FOREIGN KEY (CustomerId) REFERENCES hlp_tbl_Customer(CustomerId),
+  CONSTRAINT BANKACC_PRIMARY_KEY PRIMARY KEY (BankAccId)
+);
+
+
+//Application --
+
+CREATE TABLE hlp_tbl_Application(
+    ApplicationId number(10),
+    ApplicationCompletion varchar2(20) NOT NULL,
+    PersonalDetailsId number(10) ,
+   IncomeDetailsId number(10) ,
+    DocumentsDetailsId number(10) ,
+   CONSTRAINT APPLICATION_PRIMARY_KEY PRIMARY KEY (ApplicationId),
+    CONSTRAINT PERSONALDETAILS_FOREIGN_KEY FOREIGN KEY (PersonalDetailsId) REFERENCES hlp_tbl_PersonalDetails (PersonalDetailsId),
+   CONSTRAINT IncomeDetails_FOREIGN_KEY FOREIGN KEY (IncomeDetailsId) REFERENCES hlp_tbl_IncomeDetails (IncomeId) ,
+ CONSTRAINT DocumentsDETAILS_FOREIGN_KEY FOREIGN KEY (DocumentsDetailsId) REFERENCES hlp_tbl_DocDetails (DocsId));
+
+//LoanTracker --
+
+Create Table hlp_tbl_LoanTracker(
+LoanTrackerId number(10) ,
+ApplicationId number(10) ,
+AdminId number(10),
+LoanId number(10),
+LoanStatus varchar2(20) NOT NULL,
+PhoneNumber number(10) NOT NULL,
+CONSTRAINT LOANTRACKER_PRIMARY_KEY PRIMARY KEY (LoanTrackerId),
+CONSTRAINT APPLICATIONID1_FOREIGN_KEY FOREIGN KEY (ApplicationId) REFERENCES hlp_tbl_Application (ApplicationId),
+CONSTRAINT ADMINID1_FOREIGN_KEY FOREIGN KEY (AdminId) REFERENCES hlp_tbl_Admin(AdminId),
+CONSTRAINT LOANID1_FOREIGN_KEY FOREIGN KEY (LoanId) REFERENCES hlp_tbl_LoanDetails (LoanId)
+);
