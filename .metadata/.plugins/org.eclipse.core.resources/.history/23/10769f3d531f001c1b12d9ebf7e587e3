@@ -1,0 +1,11 @@
+package com.app.demo.services;
+
+import com.app.demo.pojo.Vehicle;
+
+public interface VehicleServices {
+ public boolean addVehicle(Vehicle vehicle);
+ public boolean updateVehicle(Vehicle vehicle);
+ public boolean deleteVehicle(String vehicleNo);
+ public List<boolean> getVehicles();
+ public boolean searchVehicles(String vehicleNo);
+}

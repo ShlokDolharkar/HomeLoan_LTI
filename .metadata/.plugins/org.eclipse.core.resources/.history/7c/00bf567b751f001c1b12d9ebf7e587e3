@@ -1,0 +1,26 @@
+package com.app.demo;
+
+import org.springframework.boot.SpringApplication;
+import org.springframework.boot.autoconfigure.SpringBootApplication;
+
+@SpringBootApplication
+public class SBproj1Application {
+
+	public static void main(String[] args) {
+		System.out.println("Welecome to SB");
+		SpringApplication.run(SBproj1Application.class, args);
+	}
+	
+	@SuppressWarnings("deprecation")
+    @Bean
+    public WebMvcConfigurer corsConfigurer() {
+          return new WebMvcConfigurerAdapter() {
+             @Override
+             public void addCorsMappings(CorsRegistry registry) {
+                registry.addMapping("/api/rest").allowedOrigins("http://localhost:4200");
+             }
+          };
+       }
+	
+
+}
