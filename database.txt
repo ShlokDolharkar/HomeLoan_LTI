@@ -16,7 +16,7 @@ Drop table hlp_tbl_PersonalDetails
 
 Desc  hlp_tbl_Customer;
 Desc hlp_tbl_Admin;
-Desc hlp_tbl_Application;
+	
 Desc table hlp_tbl_LoanTracker;
 Desc table hlp_tbl_LoanDetails;
 Desc hlp_tbl_DocDetails;
@@ -127,11 +127,13 @@ CREATE TABLE hlp_tbl_Application(
     ApplicationCompletion varchar2(20) NOT NULL,
     PersonalDetailsId number(10) ,
    IncomeDetailsId number(10) ,
-    DocumentsDetailsId number(10) ,
+    DocsId number(10) ,
+    LoanId number(10),
    CONSTRAINT APPLICATION_PRIMARY_KEY PRIMARY KEY (ApplicationId),
     CONSTRAINT PERSONALDETAILS_FOREIGN_KEY FOREIGN KEY (PersonalDetailsId) REFERENCES hlp_tbl_PersonalDetails (PersonalDetailsId),
    CONSTRAINT IncomeDetails_FOREIGN_KEY FOREIGN KEY (IncomeDetailsId) REFERENCES hlp_tbl_IncomeDetails (IncomeId) ,
- CONSTRAINT DocumentsDETAILS_FOREIGN_KEY FOREIGN KEY (DocumentsDetailsId) REFERENCES hlp_tbl_DocDetails (DocsId));
+ CONSTRAINT DocumentsDETAILS_FOREIGN_KEY FOREIGN KEY (DocsId) REFERENCES hlp_tbl_DocDetails (DocsId),
+CONSTRAINT LOANDETAILS_FOREIGN_KEY FOREIGN KEY (LoanId) REFERENCES hlp_tbl_LoanDetails (LoanId));
 
 //LoanTracker --
 
