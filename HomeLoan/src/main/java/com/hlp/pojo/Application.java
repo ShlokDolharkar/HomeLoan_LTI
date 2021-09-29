@@ -11,7 +11,7 @@ import javax.persistence.OneToOne;
 import javax.persistence.PrimaryKeyJoinColumn;
 import javax.persistence.Table;
 
-@Entity(name="hlp_tbl_Application")
+@Entity
 @Table(name="hlp_tbl_Application")
 public class Application {
 	@Id

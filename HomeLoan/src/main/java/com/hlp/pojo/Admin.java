@@ -8,7 +8,7 @@ import javax.persistence.Id;
 import javax.persistence.PrimaryKeyJoinColumn;
 import javax.persistence.Table;
 
-@Entity(name="hlp_tbl_Admin")
+@Entity
 @Table(name="hlp_tbl_Admin")
 public class Admin {
 	@Id

@@ -13,7 +13,7 @@ import javax.persistence.Table;
 
 import org.springframework.lang.NonNull;
 
-@Entity(name="hlp_tbl_LoanTracker")
+@Entity
 @Table(name="hlp_tbl_LoanTracker")
 public class LoanTracker 
 {
