@@ -29,10 +29,11 @@ Desc hlp_tbl_PersonalDetails
 
 Create Table hlp_tbl_Customer(
 CustomerId number(10) ,
-CustomerName varchar2(50) NOT NULL,
 CustomerEmail varchar2(50) NOT NULL,
 CustomerPassword varchar2(50) NOT NULL,
-CONSTRAINT CUSTOMER_PRIMARY_KEY PRIMARY KEY  (CustomerId)
+CONSTRAINT CUSTOMER_PRIMARY_KEY PRIMARY KEY  (CustomerId),
+CONSTRAINT CUSTOMER_FOREIGN_KEY Foreign KEY  (CustomerId) references hlp_tbl_RegistrationDetails(CustomerId)
+
 );
 
 
@@ -44,6 +45,19 @@ AdminName varchar2(50) NOT NULL,
 AdminEmail varchar2(50) NOT NULL,
 AdminPassword varchar2(50) NOT NULL,
 CONSTRAINT ADMIN_PRIMARY_KEY PRIMARY KEY (AdminId)
+
+);
+
+//AdminRegistraion
+
+Create Table hlp_tbl_AdminRegDetails(
+AdminId number(10),
+AdminName varchar2(50) NOT NULL,
+AdminEmail varchar2(50) NOT NULL,
+AdminPassword varchar2(50) NOT NULL,
+DateOfBirth Date NOT NULL,
+Gender varchar2(20) NOT NULL,
+CONSTRAINT AdminRegistraionDetails_PK PRIMARY KEY (AdminId )
 
 );
 
@@ -75,7 +89,7 @@ CONSTRAINT LOANID_PRIMARY_KEY PRIMARY KEY (LoanId)
 
 // Personal Details
 
-Create Table hlp_tbl_PersonalDetails(
+Create Table hlp_tbl_RegistrationDetails(
 PersonalDetailsId number(10) ,
 FirstName varchar2(50) NOT NULL,
 LastName varchar2(50) NOT NULL,
