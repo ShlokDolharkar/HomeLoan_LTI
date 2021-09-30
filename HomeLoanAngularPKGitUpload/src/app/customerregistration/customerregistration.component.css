@@ -1,0 +1,17 @@
+.errormsg{
+    font-size: x-small;
+    color: red;
+}
+
+.required{
+    font-weight: bold;
+    color: red;
+}
+
+input[type=number]::-webkit-inner-spin-button, 
+input[type=number]::-webkit-outer-spin-button { 
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    margin: 0; 
+}

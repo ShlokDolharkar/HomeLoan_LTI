@@ -1,0 +1,16 @@
+<p>All Vehicles Data</p>
+<table class="table table-bordered">
+    <thead>
+        <th>Vehicle No</th> <th>Vehicle Type </th> <th>Model Name</th><th>Modify</th>
+    </thead>
+    <tbody>
+            <tr *ngFor="let v of vehicleArray">
+                    <td>{{ v.vehicleNo}}</td>
+                    <td>{{ v.vehicleType}}</td>
+                    <td>{{ v.modelName}}</td>
+                    <td> <a [routerLink]="['/updatevehicle',v.vehicleNo]" class="btn btn-warning">Edit</a>
+                         <a href="#" class="btn btn-danger">Delete </a>
+                    </td>
+            </tr>
+    </tbody>
+</table>

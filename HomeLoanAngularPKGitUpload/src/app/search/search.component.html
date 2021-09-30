@@ -1,0 +1,22 @@
+<p>Search Vehicles Here</p>
+<table>
+        <tr>
+            <td>Enter Vehicle Type </td><td><input type="text" [(ngModel)]="srchByType"></td>
+            <td><button class="btn btn-info" (click)="searchByVehicleType()">Search</button></td> 
+         </tr>
+</table>
+<table class="table table-bordered">
+    <thead>
+        <th>Vehicle No</th> <th>Vehicle Type </th> <th>Model Name</th><th>Modify</th>
+    </thead>
+    <tbody>
+            <tr *ngFor="let v of vehicleArray">
+                    <td>{{ v.vehicleNo}}</td>
+                    <td>{{ v.vehicleType}}</td>
+                    <td>{{ v.modelName}}</td>
+                    <td> <a href="#" class="btn btn-warning">Edit</a>
+                         <a href="#" class="btn btn-danger">Delete </a>
+                    </td>
+            </tr>
+    </tbody>
+</table>

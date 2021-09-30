@@ -1,0 +1,26 @@
+<p>newvehicle works!</p>
+
+<form #vehicleForm="ngForm" (ngSubmit)=addVehicle(vehicleForm) novalidate>
+    <table>
+            <tr><td><label for="vehicleNo">Vehicle NO</label> </td>
+                <td><input type="text" name="vehicleNo" ngModel required></td>
+            </tr>
+            <tr><td><label for="vehicleType">Vehicle Type</label> </td>
+                <td>
+                   <select name="vehicleType" ngModel>
+                        <option value="NA">--select--</option>
+                        <option *ngFor="let c of vTypes" value="{{c}}">
+                            {{c}}
+                        </option>              
+                    </select>
+                </td>
+            </tr>
+            <tr><td><label for="modelName">Model Name</label> </td>
+            <td><input type="text" name="modelName" ngModel required ></td>
+            </tr>    
+           <tr>
+            <td><button type="reset" class="btn btn-danger">Reset</button> </td>
+            <td><button type="submit" [disabled]="!vehicleForm.valid" class="btn btn-primary" >Save</button></td>
+      </tr>
+    </table>
+</form>
