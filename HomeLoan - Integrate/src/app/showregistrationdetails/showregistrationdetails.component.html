@@ -1,0 +1,51 @@
+<h1 align = "center">Registraion Successful!!</h1>
+<hr><br><br>
+<h6 align = "center" class="note">
+    <marquee behavior="alternate">
+    Please note the following details before proceeding to Login
+    </marquee>  
+</h6>
+<hr><br><br>
+
+<table class="table table-bordered" >
+    <tr *ngFor = "let k of customer">
+        <th >Customer ID</th> 
+        <td align="center">{{k.customerId}}</td>
+    </tr>
+    <tr *ngFor = "let k of customer">
+        <th  >Name</th> 
+        <td align="center">{{k.firstName}} {{k.middleName}} {{k.lastName}}}</td>
+    </tr>
+    <tr *ngFor = "let k of customer">
+        <th >Email</th> 
+        <td align="center">{{k.customerEmail}}</td>
+    </tr>
+    <tr *ngFor = "let k of customer">
+        <th >Date of Birth</th> 
+        <td align="center">{{k.dateOfBirth}}</td>
+    </tr>
+    <tr *ngFor = "let k of customer">
+        <th >Phone Number</th> 
+        <td align="center">{{k.phoneNumber}}</td>
+    </tr>
+    <tr *ngFor = "let k of customer">
+        <th >Gender</th> 
+        <td align="center">{{k.gender}}</td>
+    </tr>
+    <tr *ngFor = "let k of customer">
+        <th >Natonality</th> 
+        <td align="center">{{k.nationality}}</td>
+    </tr>
+    <tr *ngFor = "let k of customer">
+        <th >Aadhar Number</th> 
+        <td align="center">{{k.aadharNumber}}</td>
+    </tr>
+    <tr *ngFor = "let k of customer">
+        <th >PAN</th> 
+        <td align="center">{{k.panNumber}}R</td>
+    </tr>
+</table>
+
+<div align = "right">
+    <button (click) = "goToLogin()" class="btn btn-success">Log In</button>
+</div>

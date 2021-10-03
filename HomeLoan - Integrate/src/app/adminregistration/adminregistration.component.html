@@ -1,0 +1,40 @@
+<p>adminregistration works!</p>
+
+<h3 align = "center">Welcome Admin!!
+</h3>
+
+<form #registrationform = "ngForm" (ngSubmit) = addAdmin(registrationform) novalidate>
+    <table align="center">
+        
+        <tr>
+            <td>Admin Name</td><td><input type="text" name = "adminName" ngModel required></td>
+        </tr>
+        <tr>
+            <td>Email</td><td><input type="email" name = "adminEmail" ngModel required></td>
+        </tr>
+        <tr>
+            <td>Password</td><td><input type="password" name = "adminPassword" ngModel required></td>
+        </tr>
+        <tr>
+            <td>Confirm Password</td><td><input type="password" name = "adminConfirmPassword" ngModel required></td>
+        </tr>
+        <tr>
+            <td>DOB</td><td><input type="date" name = "dateOfBirth" ngModel required></td>
+        </tr>
+        <tr>
+            <td>Gender</td><td>
+                <td >
+                    <select name="gender" ngModel>
+                        <option selected disabled>Select</option>
+                        <option *ngFor="let c of GenderOptns" value="{{c}}">
+                            {{c}}
+                        </option>              
+                    </select>
+                </td>
+        </tr>
+        
+        <tr>
+            <td></td><td></td><td align="left" colspan="2"><button type="submit" [disabled] = "!registrationform.valid">Register</button></td>
+        </tr>
+    </table>
+</form>

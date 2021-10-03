@@ -1,0 +1,15 @@
+<br><br><br>
+<div class="table-responsive" align="center">
+<table border="1" width="50%">
+    <thead>
+        <th>Application Id</th>
+        <th>Customer Id</th>
+    </thead>
+    <tr *ngFor="let i of appdata">
+        <td>{{i.applicationId}}</td>
+        <td>{{i.customerId.customerId}}</td>
+        <td><a [routerLink]="['/appview', i.applicationId]"class="btn btn-danger">view</a></td>
+    </tr>
+</table>
+</div>
+<router-outlet></router-outlet>

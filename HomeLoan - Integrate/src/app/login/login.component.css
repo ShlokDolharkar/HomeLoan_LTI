@@ -1,0 +1,72 @@
+/* .container {  
+    width: 300px;  
+    height: 300px;  
+    border: 5px solid red;  
+    display: flex;  
+    justify-content: center;  
+    align-items: center;  
+    }  
+    button {  
+    background-color: lightblue;  
+    color: black;  
+    font-size: 25px;  
+    display: block; 
+
+    
+    }   */
+
+    .btn-group button {
+        background-color: #04AA6D; /* Green background */
+        border: 1px solid green; /* Green border */
+        color: white; /* White text */
+        text-align: center;
+        padding: 10px 24px; /* Some padding */
+        cursor: pointer; /* Pointer/hand icon */
+        width: auto; /* Set a width if needed */
+         /* Make the buttons appear below each other */
+        align-items: center;
+        margin:0 auto;
+        display:block;
+        border-radius: 4px;
+        /* padding: 12px 28px; */
+        font-size: 16px;
+     
+      }
+      
+      .btn-group button:not(:last-child) {
+        border-bottom: none; /* Prevent double borders */
+      }
+      
+      /* Add a background color on hover */
+      .btn-group button:hover {
+        background-color: #3e8e41;
+      }
+      .btn-group-wrap {
+        text-align: center;
+    }
+  
+
+      .button1 {
+        /* box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19); */
+        background-color: none;
+        color: none;
+        border-radius: 4px;
+        padding: 12px 28px;
+        font-size: 16px;
+      }
+
+      .container {
+        height: 200px;
+        position: relative;
+        border: 3px solid green;
+      }
+      
+      .vertical-center {
+        margin: 0;
+        position: absolute;
+        top: 50%;
+        -ms-transform: translateY(-50%);
+        transform: translateY(-50%);
+      }
+
+      
